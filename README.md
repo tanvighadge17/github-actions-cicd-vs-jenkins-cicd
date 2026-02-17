@@ -63,3 +63,5 @@ then deploying them to a separate GitHub Pages repo.
 - Vinod Kurup's
 [blog post](https://www.caktusgroup.com/blog/2021/02/11/automating-pypi-releases/)
 on automating PyPI releases with GitHub Actions.
+
+Testing CI/CD workflow trigger
