@@ -2,7 +2,10 @@ name: Simple CI/CD
 
 on:
  push:
-  branches: [ main ]
+  branches:
+   - main
+
+ workflow_dispatch:
 
 jobs:
 
@@ -12,8 +15,8 @@ jobs:
 
   steps:
 
-   - name: Checkout Code
+   - name: Checkout code
      uses: actions/checkout@v4
 
-   - name: Print Success Message
+   - name: Success Message
      run: echo "CI/CD Pipeline executed successfully"
