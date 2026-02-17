@@ -1,22 +1,35 @@
-name: Simple CI/CD
+name: Python CI
 
 on:
  push:
-  branches:
-   - main
+  branches: [ main ]
 
- workflow_dispatch:
+ pull_request:
+  branches: [ main ]
 
 jobs:
 
- build:
+ test:
 
   runs-on: ubuntu-latest
 
   steps:
 
-   - name: Checkout code
-     uses: actions/checkout@v4
+  - name: Checkout code
+    uses: actions/checkout@v4
 
-   - name: Success Message
-     run: echo "CI/CD Pipeline executed successfully"
+  - name: Setup Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: '3.11'
+
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      pip install pytest
+
+  - name: Run pytest
+    run: pytest
+
+  - name: Complete job
+    run: echo "Python CI completed"
